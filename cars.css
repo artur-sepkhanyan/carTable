@@ -1,0 +1,62 @@
+#tableStyle tr th:nth-child(1){
+    background-color: red;
+}
+#tableStyle tr th:nth-child(2){
+   background-color: blue;
+}
+#tableStyle tr th:nth-child(3){
+   background-color: yellow;
+}
+#tableStyle tr th:nth-child(4){
+   background-color: green;
+}
+#tableStyle tr th:nth-child(5){
+   background-color: gray;
+}
+#tableStyle tr th:nth-child(6){
+   background-color: darkgrey;
+}
+.model{ 
+    background-color: red;
+}
+#tableStyle{
+     margin: 0 auto;
+ }
+ th, td{
+   padding: 15px 2px;
+   border: 2px solid black;
+   cursor: pointer;
+ } 
+ 
+ #pagination {
+   display: flex;
+   padding: 0;
+   list-style-type: none;
+   justify-content: center;
+ }
+ 
+ #pagination li {
+   margin-right: 5px;
+   padding: 5px;
+   border: 2px solid blue;
+   cursor: pointer;
+ }
+
+ #line{
+     text-align: center;
+     padding: 10px;
+     display: block;
+     display: none;
+ }
+ 
+ input{
+     margin: 5px;
+     width: 150px;
+     height: 30px;
+ }
+ button{
+    background-color: green;
+    margin: 5px;
+    width: 120px;
+    height: 25px;
+ }
