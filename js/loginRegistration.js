@@ -1,3 +1,6 @@
+import { english } from '../languages/english.js';
+import { arm } from '../languages/arm.js';
+import { rus } from '../languages/rus.js';
 const registeredUsers = localStorage.getItem('users');
 const users = registeredUsers ? JSON.parse(registeredUsers) : [];
 const reg = document.getElementById('rgstr_btn');
@@ -12,6 +15,38 @@ class User {
         this.password = password;
     }
 }
+
+
+let changeUserName = document.getElementById('changeUserName');
+let changeUserPass = document.getElementById('changePassword');
+let changeLoginButton = document.getElementById('log_btn');
+let changeRegButton = document.getElementById('rgstr_btn');
+
+const languageBar = document.getElementById("language");
+
+function changeLanguage() {
+    switch (languageBar.value) {
+        case "RU":
+            insertLanguage(rus);
+            break;
+        case "HY":
+            insertLanguage(arm);
+            break;
+        default:
+            insertLanguage(english);
+
+    }
+}
+
+function insertLanguage(lang) {
+    changeUserName.textContent = lang.login;
+    changeUserPass.textContent = lang.password;
+    changeLoginButton.value = lang.loginButton;
+    changeRegButton.value = lang.goToRegisterButton;
+}
+
+languageBar.addEventListener('change', changeLanguage);
+
 let store = () => {
     let nameSurname = document.forms[0].name.value;
     let email = document.forms[0].email.value;
