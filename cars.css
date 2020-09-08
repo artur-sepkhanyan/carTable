@@ -37,17 +37,16 @@
  
  #pagination li {
    margin-right: 5px;
-   padding: 5px;
-   border: 2px solid blue;
+   border: 2px solid gray;
    cursor: pointer;
  }
 
- #line{
+ #line, #editLine{
      text-align: center;
      padding: 10px;
-     display: block;
      display: none;
  }
+
  
  input{
      margin: 5px;
