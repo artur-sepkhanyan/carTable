@@ -13,21 +13,21 @@
     <div class="login">
         <form id='form-login'>
 
-            <label for="userName" id="changeUserName">Username or Email</label>
+            <label for="userName" id="changeUserName" data-translate="login">Username or Email</label>
             <input type="email" id="userName" required>
 
-            <label for="userPw" id="changePassword">Password</label>
+            <label for="userPw" id="changePassword" data-translate="password">Password</label>
             <input type="password" id="userPw" required>
 
-            <input id="log_btn" value="Login" type="submit">
-            <a href="registration.html" id="goTo"><input id="rgstr_btn" type="button" value="Go to Register"></a>
+            <input id="log_btn" value="Login" type="submit" data-translate="loginButton">
+            <a href="registration.html" id="goTo"><input id="rgstr_btn" type="button" value="Go to Register" data-translate="goToRegisterButton"></a>
         </form>
         <label for="language">Language</label>
 
         <select id="language">
-            <option value="EN">English</option>
-            <option value="RU">Русский</option>
-            <option value="HY">Հայերեն</option>
+            <option value="eng">English</option>
+            <option value="rus">Русский</option>
+            <option value="arm">Հայերեն</option>
         </select>
     </div>
     <script type="module" src="js/loginRegistration.js"></script>

@@ -1,4 +1,4 @@
-export const english = 
+export default
     {
         "login": "Username or email",
         "password": "Password",

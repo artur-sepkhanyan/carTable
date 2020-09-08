@@ -1,6 +1,4 @@
-import { english } from '../languages/english.js';
-import { arm } from '../languages/arm.js';
-import { rus } from '../languages/rus.js';
+
 const registeredUsers = localStorage.getItem('users');
 const users = registeredUsers ? JSON.parse(registeredUsers) : [];
 const reg = document.getElementById('rgstr_btn');
@@ -22,30 +20,23 @@ let changeUserPass = document.getElementById('changePassword');
 let changeLoginButton = document.getElementById('log_btn');
 let changeRegButton = document.getElementById('rgstr_btn');
 
+const translateControls = document.querySelectorAll('[data-translate]');
 const languageBar = document.getElementById("language");
+languageBar.addEventListener('change', (event)=> changeLanguage(event.target.value));
 
-function changeLanguage() {
-    switch (languageBar.value) {
-        case "RU":
-            insertLanguage(rus);
-            break;
-        case "HY":
-            insertLanguage(arm);
-            break;
-        default:
-            insertLanguage(english);
+function changeLanguage(value) {
+    import(`../languages/${value}.js`).then(locale => {
 
-    }
+        translateControls.forEach(item => {
+            item.innerHTML = locale.default[item.dataset.translate];
+            item.value = locale.default[item.dataset.translate];
+        })
+    })
 }
 
-function insertLanguage(lang) {
-    changeUserName.textContent = lang.login;
-    changeUserPass.textContent = lang.password;
-    changeLoginButton.value = lang.loginButton;
-    changeRegButton.value = lang.goToRegisterButton;
-}
+changeLanguage(languageBar.value)
 
-languageBar.addEventListener('change', changeLanguage);
+
 
 let store = () => {
     let nameSurname = document.forms[0].name.value;
@@ -78,7 +69,7 @@ let check = (e) => {
     });
     if (user) {
         alert('You are logged in.');
-        window.location = 'file:///Users/fastshift/Desktop/Internship/deleteCar/cars.html'
+        window.location = 'file:///Users/fastshift/Desktop/Internship/deleteCar/menu.html'
     } else {
         alert('User not found');
     }

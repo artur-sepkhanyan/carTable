@@ -1,4 +1,4 @@
-export const arm = 
+export default 
     {
         "login": "Մուտքանուն",
         "password": "Գաղտնաբառ",

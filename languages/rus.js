@@ -1,4 +1,4 @@
-export const rus = 
+export default 
     {
         "login": "Имя ползьзователя",
         "password": "Пароль",
