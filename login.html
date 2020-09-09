@@ -26,9 +26,22 @@
             <a href="registration.html" id="goTo"><input id="rgstr_btn" type="button" value="Go to Register"
                     data-translate="goToRegisterButton"></a>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div id="content"></div>
+            <button onclick="signOut()">Sign Out</button>
             <script>
-                function onSignIn() {
-                    console.log("DDD")
+                function onSignIn(googleUser) {
+                    console.log("DDD");
+                    let profile = googleUser.getBasicProfile();
+                   let element =  document.querySelector("#content");
+                   element.innerText = googleUser.getBasicProfile().getName();
+                    let image = document.createElement("img");
+                    image.setAttribute("src", profile.getImageUrl());
+                    element.append(image)
+                }
+                function signOut(){
+                    gapi.auth2.getAuthInstance().signOut().then(function(){
+                        console.log("DDcdcdD");
+                    })
                 }
             </script>
         </form>
