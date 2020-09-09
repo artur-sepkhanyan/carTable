@@ -37,7 +37,6 @@ function changeLanguage(value) {
 changeLanguage(languageBar.value)
 
 
-
 let store = () => {
     let nameSurname = document.forms[0].name.value;
     let email = document.forms[0].email.value;
@@ -69,10 +68,11 @@ let check = (e) => {
     });
     if (user) {
         alert('You are logged in.');
-        window.location = 'file:///Users/fastshift/Desktop/Internship/deleteCar/menu.html'
+        window.location = 'file:///Users/fastshift/Desktop/Internship/carList/menu.html';
     } else {
         alert('User not found');
     }
 }
 reg.addEventListener('click', store);
 log.addEventListener('submit', check);
+

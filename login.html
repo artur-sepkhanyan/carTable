@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="454386135685-akic3fd97sal9oci4rme9os4f9o99nr5.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="css/loginRegistration.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
@@ -20,7 +23,14 @@
             <input type="password" id="userPw" required>
 
             <input id="log_btn" value="Login" type="submit" data-translate="loginButton">
-            <a href="registration.html" id="goTo"><input id="rgstr_btn" type="button" value="Go to Register" data-translate="goToRegisterButton"></a>
+            <a href="registration.html" id="goTo"><input id="rgstr_btn" type="button" value="Go to Register"
+                    data-translate="goToRegisterButton"></a>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <script>
+                function onSignIn() {
+                    console.log("DDD")
+                }
+            </script>
         </form>
         <label for="language">Language</label>
 
