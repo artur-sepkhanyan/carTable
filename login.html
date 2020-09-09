@@ -36,7 +36,8 @@
                    element.innerText = googleUser.getBasicProfile().getName();
                     let image = document.createElement("img");
                     image.setAttribute("src", profile.getImageUrl());
-                    element.append(image)
+                    element.append(image);
+                    window.location.assign("./cars.html");
                 }
                 function signOut(){
                     gapi.auth2.getAuthInstance().signOut().then(function(){
