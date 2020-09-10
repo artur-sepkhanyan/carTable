@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="454386135685-akic3fd97sal9oci4rme9os4f9o99nr5.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="454386135685-akic3fd97sal9oci4rme9os4f9o99nr5.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="css/loginRegistration.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,20 +27,11 @@
                     data-translate="goToRegisterButton"></a>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <div id="content"></div>
-            <script>
-                function onSignIn(googleUser) {
-                    console.log("DDD");
-                    let profile = googleUser.getBasicProfile();
-                   let element =  document.querySelector("#content");
-                   element.innerText = googleUser.getBasicProfile().getName();
-                    let image = document.createElement("img");
-                    image.setAttribute("src", profile.getImageUrl());
-                    element.append(image);
-                    window.location.assign("./cars.html");
-                }
-                
-            </script>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+            
         </form>
+        <button id="logOut" onclick="logoutFb()">FB Log Out</button>
         <label for="language">Language</label>
 
         <select id="language">
@@ -48,6 +40,59 @@
             <option value="arm">Հայերեն</option>
         </select>
     </div>
+    <script>
+        function onSignIn(googleUser) {
+            console.log("DDD");
+            let profile = googleUser.getBasicProfile();
+            let element = document.querySelector("#content");
+            element.innerText = googleUser.getBasicProfile().getName();
+            let image = document.createElement("img");
+            image.setAttribute("src", profile.getImageUrl());
+            element.append(image);
+            window.location.assign("./cars.html");
+        }
+
+    </script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '994044031068757',
+                cookie: true,
+                xfbml: true,
+                version: 'v8.0'
+            });
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+            FB.AppEvents.logPageView();
+            window.logoutFb = FB.logout;
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+                console.log("OK")
+            } else {
+                console.log("Error");
+            }
+        }
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+    </script>
+
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script type="module" src="js/loginRegistration.js"></script>
 </body>
 

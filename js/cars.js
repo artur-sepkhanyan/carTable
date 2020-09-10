@@ -204,33 +204,30 @@ function update() {
 }
 editButton.addEventListener('click', update)
 
-function search(){
+function search() {
     let arr = car.filter((item) => {
         for (let key in item) {
             if (item[key].toLowerCase().match(searchInput.value.toLowerCase())) {
                 return true;
             }
         }
-    })  
+    })
     mainTable.innerHTML = "";
     localStorage.setItem("myCarsArray", JSON.stringify(arr));
     table(arr.slice(0, page));
 }
 searchButton.addEventListener("click", search)
 
-// function signOut(){
-//     gapi.auth2.getAuthInstance().signOut().then(function(){
-//         console.log("DDcdcdD");
-//     })
-// }
 
 let signOut = document.getElementById("signOut");
 gapi.load('auth2', function () {
     gapi.auth2.init();
 });
 signOut.addEventListener("click", function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
+    let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         window.location.assign("./login.html");
     });
 });
+
+
