@@ -218,3 +218,19 @@ function search(){
 }
 searchButton.addEventListener("click", search)
 
+// function signOut(){
+//     gapi.auth2.getAuthInstance().signOut().then(function(){
+//         console.log("DDcdcdD");
+//     })
+// }
+
+let signOut = document.getElementById("signOut");
+gapi.load('auth2', function () {
+    gapi.auth2.init();
+});
+signOut.addEventListener("click", function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        window.location.assign("./login.html");
+    });
+});
